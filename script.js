@@ -68,6 +68,7 @@ const span = document.getElementsByClassName('close')[0];
 
 window.onload = function() {
     modal.style.display = 'block';
+    startConfetti();
 }
 
 span.onclick = function() {
@@ -78,5 +79,26 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
     }
+}
+
+// Confetti animation
+function launchConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
+function startConfetti() {
+    const duration = 7 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        launchConfetti();
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
 }
 
