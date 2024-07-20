@@ -79,3 +79,15 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 95%;
+    }
+
+    .gallery-item img {
+        width: 100%;
+    }
+}

@@ -1,4 +1,15 @@
-// Get the lightbox elements
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Lightbox functionality
 const lightbox = document.createElement('div');
 lightbox.className = 'lightbox';
 document.body.appendChild(lightbox);
@@ -15,27 +26,27 @@ lightbox.appendChild(closeButton);
 const lightboxImage = document.createElement('img');
 lightboxContent.appendChild(lightboxImage);
 
-// Function to open lightbox
 function openLightbox(event) {
     lightboxImage.src = event.target.src;
     lightbox.style.display = 'block';
 }
 
-// Function to close lightbox
 function closeLightbox() {
     lightbox.style.display = 'none';
 }
 
-// Add event listeners
 document.querySelectorAll('.gallery-item img').forEach(img => {
     img.addEventListener('click', openLightbox);
 });
 
 closeButton.addEventListener('click', closeLightbox);
 
-// Close lightbox when clicking outside of the image
 lightbox.addEventListener('click', event => {
     if (event.target === lightbox) {
         closeLightbox();
     }
 });
+
+// Play background music
+const backgroundMusic = document.getElementById('background-music');
+backgroundMusic.play();
