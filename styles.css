@@ -31,7 +31,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item p {
+.caption {
     margin: 10px 0;
     font-size: 1.2em;
     color: #333;
