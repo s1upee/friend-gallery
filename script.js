@@ -50,3 +50,14 @@ lightbox.addEventListener('click', event => {
 // Play background music
 const backgroundMusic = document.getElementById('background-music');
 backgroundMusic.play();
+
+function toggleMusic() {
+    const musicControl = document.getElementById('music-control');
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        musicControl.textContent = 'Pause Music';
+    } else {
+        backgroundMusic.pause();
+        musicControl.textContent = 'Play Music';
+    }
+}
